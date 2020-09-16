@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Thread;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ThreadController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
-        //
+        return Inertia::render('Threads/Index', [
+            'threads' => Thread::latest()->get()
+        ]);
     }
 
     /**
@@ -41,12 +44,14 @@ class ThreadController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Thread  $thread
-     * @return \Illuminate\Http\Response
+     * @param Thread $thread
+     * @return \Inertia\Response
      */
     public function show(Thread $thread)
     {
-        //
+        return Inertia::render('Threads/Show', [
+            'thread' => $thread
+        ]);
     }
 
     /**
