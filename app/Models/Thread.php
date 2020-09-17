@@ -9,4 +9,15 @@ class Thread extends Model
 {
     use HasFactory;
 
+    protected $appends = ['path'];
+
+    public function path()
+    {
+        return '/threads/' . $this->id;
+    }
+
+    public function getPathAttribute()
+    {
+        return $this->path();
+    }
 }

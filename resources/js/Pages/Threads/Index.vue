@@ -11,7 +11,7 @@
                 <div class="px-6 py-4">
                     <div v-for="thread in threads" :key="thread.id">
                         <div class="font-bold text-xl mb-2">
-                            <inertia-link :href="path(thread)">{{thread.title}}</inertia-link>
+                            <inertia-link :href="thread.path">{{thread.title}}</inertia-link>
                         </div>
                         <p class="text-gray-700 text-base">
                             {{thread.body}}
@@ -33,11 +33,6 @@ export default {
     },
     props: {
         threads: Array,
-    },
-    methods: {
-        path: function(thread) {
-            return '/threads/' + thread.id;
-        }
     }
 
 }

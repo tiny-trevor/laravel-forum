@@ -4369,11 +4369,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     threads: Array
-  },
-  methods: {
-    path: function path(thread) {
-      return '/threads/' + thread.id;
-    }
   }
 });
 
@@ -28002,11 +27997,9 @@ var render = function() {
                     "div",
                     { staticClass: "font-bold text-xl mb-2" },
                     [
-                      _c(
-                        "inertia-link",
-                        { attrs: { href: _vm.path(thread) } },
-                        [_vm._v(_vm._s(thread.title))]
-                      )
+                      _c("inertia-link", { attrs: { href: thread.path } }, [
+                        _vm._v(_vm._s(thread.title))
+                      ])
                     ],
                     1
                   ),
