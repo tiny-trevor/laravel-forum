@@ -4399,6 +4399,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Show",
@@ -4406,7 +4416,8 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
-    thread: Object
+    thread: Object,
+    replies: Object
   }
 });
 
@@ -28044,27 +28055,72 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("app-layout", [
-    _c("div", { staticClass: "py-12" }, [
-      _c(
-        "div",
-        { staticClass: "max-w-xl mx-auto rounded overflow-hidden shadow-lg" },
-        [
-          _c("div", { staticClass: "px-6 py-4" }, [
-            _c("div", { staticClass: "font-bold text-xl mb-2" }, [
-              _vm._v(_vm._s(_vm.thread.title))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-gray-700 text-base" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.thread.body) +
-                  "\n                "
-              )
+    _c(
+      "div",
+      { staticClass: "py-12" },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "max-w-xl mx-auto rounded overflow-hidden shadow-md mb-5"
+          },
+          [
+            _c("div", { staticClass: "px-6 py-4" }, [
+              _c("div", { staticClass: "font-bold text-xl mb-2 shadow-sm" }, [
+                _vm._v(_vm._s(_vm.thread.title))
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-gray-700 text-base" }, [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.thread.body) +
+                    "\n                "
+                )
+              ])
             ])
-          ])
-        ]
-      )
-    ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._l(_vm.replies, function(reply) {
+          return _c(
+            "div",
+            {
+              staticClass:
+                "max-w-xl mx-auto rounded overflow-hidden shadow-md mb-5"
+            },
+            [
+              _c("div", { staticClass: "px-6 py-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "font-bold text-sm mb-2 shadow-sm" },
+                  [
+                    _c("inertia-link", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(reply.author))
+                    ]),
+                    _vm._v(
+                      " said " +
+                        _vm._s(reply.created_when) +
+                        "...\n                "
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-gray-700 text-base" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(reply.body) +
+                      "\n                "
+                  )
+                ])
+              ])
+            ]
+          )
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []

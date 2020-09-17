@@ -50,7 +50,8 @@ class ThreadController extends Controller
     public function show(Thread $thread)
     {
         return Inertia::render('Threads/Show', [
-            'thread' => $thread
+            'thread' => $thread,
+            'replies' => $thread->replies
         ]);
     }
 
