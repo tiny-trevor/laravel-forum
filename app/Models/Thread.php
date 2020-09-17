@@ -10,10 +10,17 @@ class Thread extends Model
     use HasFactory;
 
     /**
+     * Make all values mass assignable
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * Values to append to the model
      * @var string[]
      */
-    protected $appends = ['path'];
+    protected $appends = ['path', 'author'];
 
     /**
      * Fetch path to the current thread
@@ -43,5 +50,35 @@ class Thread extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class);
+    }
+
+    /**
+     * A Reply belongs to a user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function owner()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
+
+    /**
+     * Get Attribute for owner
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function getAuthorAttribute()
+    {
+        return $this->owner->name;
+    }
+
+    /**
+     * Add a reply for a thread
+     *
+     * @param $reply
+     */
+    public function addReply($reply)
+    {
+        $this->replies()->create($reply);
     }
 }

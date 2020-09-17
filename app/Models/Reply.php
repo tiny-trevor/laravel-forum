@@ -10,6 +10,13 @@ class Reply extends Model
     use HasFactory;
 
     /**
+     * Make all values mass assignable
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * Values to append to the model
      *
      * @var string[]
@@ -23,7 +30,7 @@ class Reply extends Model
      */
     public function getCreatedWhenAttribute()
     {
-        return $this->created_at->diffForHumans();
+        return $this->created_at != null ? $this->created_at->diffForHumans() : null;
     }
 
     /**

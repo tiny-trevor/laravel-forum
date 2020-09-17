@@ -16,6 +16,9 @@
                         <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
                             Dashboard
                         </jet-nav-link>
+                        <jet-nav-link href="/threads" :active="$page.currentRouteName == 'threads'">
+                            All Threads
+                        </jet-nav-link>
                     </div>
                 </div>
 
@@ -49,6 +52,9 @@
             <div class="pt-2 pb-3 space-y-1">
                 <jet-responsive-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
                     Dashboard
+                </jet-responsive-nav-link>
+                <jet-responsive-nav-link href="/threads" :active="$page.currentRouteName == 'threads'">
+                    All Threads
                 </jet-responsive-nav-link>
             </div>
 
